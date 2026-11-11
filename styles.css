@@ -1,0 +1,774 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --ink: #1f2933;
+    --muted: #52606d;
+    --gold: #a66a16;
+    --gold-soft: rgba(166, 106, 22, 0.12);
+    --navy: #ffffff;
+    --panel: rgba(255, 255, 255, 0.94);
+    --line: rgba(31, 41, 51, 0.16);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+    color: var(--ink);
+    background: var(--navy);
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.fullpage {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 12px clamp(20px, 5vw, 72px);
+    border-bottom: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(14px);
+}
+
+.header img {
+    width: auto;
+    height: 56px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    list-style: none;
+}
+
+.nav a,
+.footer-bar a {
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.nav a {
+    display: inline-block;
+    padding: 10px 13px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 0.86rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+    color: var(--gold);
+    border-color: rgba(232, 187, 104, 0.45);
+    background: var(--gold-soft);
+    outline: none;
+}
+
+.content {
+    position: relative;
+    isolation: isolate;
+    flex: 1;
+    width: 100%;
+    min-height: calc(100vh - 82px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 26px;
+    padding: clamp(56px, 8vw, 110px) 20px;
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.72)), url("./images/bg img.jpg");
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.content::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(circle at 50% 0%, rgba(232, 187, 104, 0.16), transparent 42%);
+    pointer-events: none;
+}
+
+.content > * {
+    width: min(100%, 920px);
+}
+
+.hero,
+.hymns,
+.branches,
+.worship,
+.scripture,
+.events,
+.news,
+.news-section,
+.motto,
+.vision,
+.mission,
+.AboutUs,
+.leaders,
+.gallery {
+    padding: clamp(24px, 4vw, 42px);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel);
+    box-shadow: 0 20px 55px rgba(31, 41, 51, 0.12);
+    backdrop-filter: blur(8px);
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.65fr);
+    gap: 20px;
+}
+
+.contact-form-panel,
+.contact-details {
+    padding: clamp(24px, 4vw, 42px);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--panel);
+    box-shadow: 0 20px 55px rgba(31, 41, 51, 0.12);
+}
+
+.contact-form-panel > p {
+    margin-bottom: 24px;
+}
+
+.contact-form {
+    display: grid;
+    gap: 18px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.form-field {
+    display: grid;
+    gap: 7px;
+}
+
+.form-field label {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    color: var(--ink);
+    background: #f8fafc;
+    font: inherit;
+}
+
+.form-field textarea {
+    resize: vertical;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    border-color: var(--gold);
+    outline: 2px solid rgba(232, 187, 104, 0.25);
+    outline-offset: 1px;
+}
+
+.contact-form button {
+    justify-self: start;
+    padding: 13px 22px;
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    color: var(--navy);
+    background: var(--gold);
+    cursor: pointer;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: transform 180ms ease, background 180ms ease;
+}
+
+.contact-form button:hover,
+.contact-form button:focus-visible {
+    background: #f4d28e;
+    transform: translateY(-2px);
+    outline: none;
+}
+
+.gallery {
+    width: min(100%, 1100px);
+}
+
+.gallery-heading {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.eyebrow {
+    margin-bottom: 8px;
+    color: var(--gold);
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.gallery-heading h2 {
+    margin-bottom: 8px;
+}
+
+.gallery-group + .gallery-group {
+    margin-top: 34px;
+}
+
+.gallery-group h3 {
+    margin: 0 0 14px;
+    color: var(--gold);
+    font-size: 1.35rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+}
+
+.gallery-grid img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    object-fit: cover;
+    transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.gallery-grid img:hover {
+    border-color: var(--gold);
+    transform: translateY(-3px);
+}
+
+.sections,
+.leaders {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    padding: 30px;
+    
+}
+.sections section {
+    flex: 1;
+    width: 33.33%;
+    padding: 30px;
+    border: 1px solid #d7dee5;
+    border-radius: 10px;
+}
+.leaders section {
+    flex: 1;
+    width: 50%;
+    padding: 30px;
+    border: 1px solid #d7dee5;
+    border-radius: 10px;
+}
+
+.hero {
+    padding-block: clamp(48px, 8vw, 84px);
+    text-align: center;
+}
+
+.hymns {
+    width: min(100%, 1100px);
+}
+
+.hymns > p:first-of-type {
+    margin-bottom: 24px;
+}
+
+.hymn-viewer {
+    width: 100%;
+    height: min(78vh, 1000px);
+    min-height: 560px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: #f1f5f9;
+}
+
+.hymn-viewer iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.hymn-fallback {
+    margin-top: 18px;
+    font-size: 0.92rem;
+    text-align: center;
+}
+
+.hymn-fallback a {
+    color: var(--gold);
+}
+
+h1,
+h2,
+h3,
+p,
+li,
+label,
+legend {
+    color: var(--ink);
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.15;
+}
+
+h1 {
+    margin-bottom: 16px;
+    font-size: clamp(2.2rem, 6vw, 4.5rem);
+    font-weight: 700;
+}
+
+h2 {
+    margin-bottom: 16px;
+    color: var(--gold);
+    font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+h3 {
+    margin: 18px 0 7px;
+    font-size: 1.05rem;
+}
+
+p {
+    color: var(--muted);
+    line-height: 1.75;
+}
+
+.hero p {
+    max-width: 560px;
+    margin: 0 auto 30px;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.hero a,
+.news a {
+    display: inline-block;
+    padding: 13px 22px;
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    color: var(--navy);
+    background: var(--gold);
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: transform 180ms ease, background 180ms ease;
+}
+
+.hero a:hover,
+.news a:hover,
+.hero a:focus-visible,
+.news a:focus-visible {
+    background: #f4d28e;
+    transform: translateY(-2px);
+    outline: none;
+}
+
+.branches p {
+    color: var(--ink);
+    text-align: center;
+}
+
+.worship,
+.scripture,
+.events,
+.news {
+    text-align: center;
+}
+
+.scripture p {
+    font-style: italic;
+}
+
+.news p {
+    margin-bottom: 24px;
+}
+
+.news-section h1 {
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--gold);
+    text-align: center;
+}
+
+.news-section h2 {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.news-section p {
+    white-space: pre-line;
+}
+
+.latest-news-item {
+    margin-bottom: 34px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--line);
+}
+
+.conference-countdown-label {
+    margin: 14px 0 10px;
+    color: var(--gold);
+    font-weight: 700;
+    text-align: center;
+}
+
+.conference-countdown {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    width: min(100%, 560px);
+    margin: 0 auto 24px;
+}
+
+.conference-countdown div {
+    display: grid;
+    gap: 4px;
+    padding: 12px 8px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--gold-soft);
+    text-align: center;
+}
+
+.conference-countdown div span:first-child {
+    color: var(--ink);
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+}
+
+.conference-countdown div span:last-child {
+    color: var(--muted);
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+}
+
+.conference-countdown-message {
+    margin: 0 0 24px;
+    color: var(--gold);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.latest-news-figure {
+    margin: 0 auto;
+    max-width: 680px;
+}
+
+.latest-news-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+}
+
+.latest-news-figure figcaption {
+    margin-top: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+}
+
+.conference-programs-link,
+.program-download-link,
+.programs-back-link
+ {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 20px;
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    color: #ffffff !important;
+    background: var(--gold);
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    transition: background 180ms ease, transform 180ms ease;
+}
+.programs-back-link a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.conference-programs-link {
+    display: flex;
+    width: fit-content;
+    max-width: 100%;
+    margin: 22px auto 0;
+}
+
+.conference-programs-link:hover,
+.conference-programs-link:focus-visible,
+.program-download-link:hover,
+.program-download-link:focus-visible
+.programs-back-link:hover,
+.programs-back-link:focus-visible {
+    color: #ffffff !important;
+    background: #80500f;
+    transform: translateY(-2px);
+    outline: none;
+}
+
+.programs-page h1 {
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--gold);
+    text-align: center;
+}
+
+.programs-page > p {
+    margin: 18px 0 28px;
+    color: var(--muted);
+    text-align: center;
+}
+
+.program-download-list {
+    display: grid;
+    gap: 14px;
+}
+
+.program-download-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.72);
+}
+
+.program-download-item h2 {
+    margin: 0 0 6px;
+    font-size: 1.15rem;
+}
+
+.program-download-item p {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.programs-back-link {
+    display: block;
+    width: fit-content;
+    margin: 24px auto 0;
+}
+
+.news-section a {
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.news-section a:hover,
+.news-section a:focus-visible {
+    color: var(--gold);
+}
+
+.footer-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 24px clamp(20px, 5vw, 72px);
+    border-top: 1px solid var(--line);
+    background: #ffffff;
+    color: var(--muted);
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 0.82rem;
+}
+
+.footer-bar p {
+    color: var(--muted);
+}
+
+.footer-right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+.footer-bar a:hover,
+.footer-bar a:focus-visible {
+    color: var(--gold);
+    outline: none;
+}
+
+.powered-by {
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.whatsapp-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 30;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px 12px 14px;
+    border-radius: 999px;
+    background: #25d366;
+    box-shadow: 0 18px 40px rgba(37, 211, 102, 0.32);
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.whatsapp-float:hover,
+.whatsapp-float:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 42px rgba(37, 211, 102, 0.36);
+    outline: none;
+}
+
+.whatsapp-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.whatsapp-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+@media (max-width: 720px) {
+    .header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .nav,
+    .nav ul {
+        width: 100%;
+    }
+
+    .nav ul {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .nav a {
+        padding: 8px 9px;
+        font-size: 0.73rem;
+    }
+
+    .content {
+        min-height: calc(100vh - 140px);
+        background-attachment: scroll;
+    }
+
+    .sections {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .contact-layout,
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .sections section {
+        width: 100%;
+    }
+
+    .gallery {
+        padding: 24px 16px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer-bar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .program-download-item {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .program-download-link {
+        width: 100%;
+    }
+
+    .footer-right {
+        justify-content: flex-start;
+    }
+}

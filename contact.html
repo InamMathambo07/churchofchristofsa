@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COC | Contact Page</title>
+    <link rel="icon" href="./images/churchLogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="fullpage">
+         <header class="header">
+        <img src="./images/churchLogo.png" alt="Church of christ">
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="hymns.html">Hymns</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="content">
+        <section class="contact-layout">
+            <section class="contact-form-panel">
+                <h2>Write to us</h2>
+                <p>Complete the form and your email app will open with your message ready to send.</p>
+                <form class="contact-form" action="mailto:churchofchristsa1@gmail.com" method="post" enctype="text/plain">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="name">Your name</label>
+                            <input id="name" name="Name" type="text" autocomplete="name" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="email">Email address</label>
+                            <input id="email" name="Email" type="email" autocomplete="email" required>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label for="reason">How can we help?</label>
+                        <select id="reason" name="Reason">
+                            <option value="General enquiry">General enquiry</option>
+                            <option value="Prayer request">Prayer request</option>
+                            <option value="Service information">Service information</option>
+                            
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="message">Your message</label>
+                        <textarea id="message" name="Message" rows="6" required></textarea>
+                    </div>
+                    <button type="submit">Open email</button>
+                </form>
+            </section>
+
+            <section class="contact-details">
+                <h2>Get in touch</h2>
+                <p>For questions, prayer requests, fellowship, or information about our services, please contact us by email or WhatsApp.</p>
+                <h3>Email</h3>
+                <p><a href="mailto:churchofchristsa1@gmail.com">churchofchristsa1@gmail.com</a></p>
+                <h3>WhatsApp</h3>
+                <p><a href="https://wa.me/27796066213?text=Hello%20Church%20of%20Christ%20of%20SA%2C%20I%20would%20like%20to%20chat%20with%20you." target="_blank" rel="noopener">+27 79 606 6213</a></p>
+            </section>
+        </section>
+
+        <section class="sections">
+
+            <section class="news-section">
+                <h2>Worship with us</h2>
+                <p>Our congregations meet across South Africa. You are welcome to join us for worship, Bible study, and fellowship.</p>
+                <h3>Service times</h3>
+                <p>Sundays: 11:00 AM - 1:00 PM</p>
+                <p>Wednesdays: Youth sessions, 5:00 PM - 6:30 PM</p>
+            </section>
+
+            <section class="news-section">
+                <h2>Our branches</h2>
+                <p>Gqeberha, Alice, St Albans, Phakamisa, Mqanduli, Mossel Bay, Walmer, and Gugulethu.</p>
+                <h3>Need directions?</h3>
+                <p>Send us a message and we will help you find the congregation nearest to you.</p>
+            </section>
+        </section>
+    </main>
+    
+    <footer class="footer-bar">
+        <p>&copy; Church Of Christ of SA . All rights reserved.</p>
+        <div class="footer-right">
+            <a href="../portfolio/">Portfolio</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </footer>
+    </div>
+    
+</body>
+</html>
